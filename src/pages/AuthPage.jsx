@@ -11,6 +11,16 @@ import {
 } from '../services/authService.js'
 import { useAuth } from '../hooks/useAuth.jsx'
 
+const FIREBASE_ERROR_MESSAGES = {
+  'auth/invalid-credential': 'Invalid email or password. Please try again.',
+  'auth/invalid-email': 'Please enter a valid email address.',
+  'auth/user-not-found': 'No account found for this email.',
+  'auth/wrong-password': 'Incorrect password.',
+  'auth/email-already-in-use': 'This email is already registered. Please sign in.',
+  'auth/weak-password': 'Password should be at least 6 characters long.',
+  'auth/too-many-requests': 'Too many attempts. Please wait a moment and try again.',
+}
+
 function AuthPage() {
   const navigate = useNavigate()
   const { isAuthenticated, isLoading, user } = useAuth()
@@ -28,6 +38,19 @@ function AuthPage() {
   function resetMessages() {
     setErrorMessage('')
     setSuccessMessage('')
+  }
+
+  function getFriendlyErrorMessage(error, fallbackMessage) {
+    const code = error?.code
+    if (code && FIREBASE_ERROR_MESSAGES[code]) {
+      return FIREBASE_ERROR_MESSAGES[code]
+    }
+
+    if (error?.message) {
+      return error.message.replace(/^Firebase:\s*/i, '').trim()
+    }
+
+    return fallbackMessage
   }
 
   async function handleSubmit(event) {
@@ -52,9 +75,7 @@ function AuthPage() {
         isSignupMode
           ? 'Unable to create account right now. Please try again.'
           : 'Invalid email or password.'
-      const rawMessage = error.message || fallbackMessage
-      const code = error.code ? ` (${error.code})` : ''
-      setErrorMessage(`${rawMessage}${code}`)
+      setErrorMessage(getFriendlyErrorMessage(error, fallbackMessage))
     } finally {
       setIsSubmitting(false)
     }
@@ -70,7 +91,7 @@ function AuthPage() {
       await resendVerificationEmail(user)
       setSuccessMessage('Verification email sent again. Please check your inbox.')
     } catch (error) {
-      setErrorMessage(error.message || 'Unable to resend verification email.')
+      setErrorMessage(getFriendlyErrorMessage(error, 'Unable to resend verification email.'))
     }
   }
 

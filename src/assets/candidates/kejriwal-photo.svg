@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="Arvind Kejriwal">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="160" rx="18" fill="url(#bg)"/>
+  <circle cx="100" cy="62" r="27" fill="#dcfce7"/>
+  <path d="M54 146c4-24 22-40 46-40s42 16 46 40" fill="#f0fdf4"/>
+  <rect x="70" y="56" width="60" height="8" rx="4" fill="#14532d"/>
+  <text x="100" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#14532d">Candidate</text>
+</svg>

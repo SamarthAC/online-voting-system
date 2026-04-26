@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Party symbol">
+  <rect width="120" height="120" rx="18" fill="#ecfdf5"/>
+  <path d="M22 72c0-21 17-38 38-38s38 17 38 38-17 38-38 38S22 93 22 72z" fill="#16a34a"/>
+  <path d="M40 72h40M60 52v40" stroke="#dcfce7" stroke-width="8" stroke-linecap="round"/>
+</svg>

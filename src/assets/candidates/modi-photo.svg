@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 160" role="img" aria-label="Modi">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="160" rx="18" fill="url(#bg)"/>
+  <circle cx="100" cy="62" r="27" fill="#fde68a"/>
+  <path d="M54 146c4-24 22-40 46-40s42 16 46 40" fill="#fff7ed"/>
+  <path d="M76 53c7-12 41-12 48 0" stroke="#92400e" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <text x="100" y="148" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#7c2d12">Candidate</text>
+</svg>
